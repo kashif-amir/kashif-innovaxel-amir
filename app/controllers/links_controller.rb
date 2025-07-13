@@ -31,6 +31,14 @@ class LinksController < ApplicationController
     head :no_content
   end
 
+  def stats
+    render json: {
+      original_url: @link.original_url,
+      short_code: @link.short_code,
+      access_count: @link.access_count
+    }
+  end
+
   private
 
   def link_params
