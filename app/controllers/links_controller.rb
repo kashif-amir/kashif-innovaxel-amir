@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
 
-   before_action :set_link, only: [:show]
+   before_action :set_link, only: [:show, :update]
 
   def create
     short_code = SecureRandom.alphanumeric(6)
@@ -26,7 +26,7 @@ class LinksController < ApplicationController
     end
   end
 
-  
+
   private
 
   def link_params
