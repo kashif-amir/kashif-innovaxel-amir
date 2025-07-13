@@ -14,10 +14,14 @@ class LinksController < ApplicationController
 
   private
 
+  def link_params
+    params.require(:link).permit(:original_url)
+  end
+
   def set_link
     @link = Link.find_by!(short_code: params[:short_code])
     rescue ActiveRecord::RecordNotFound
     render json: { error: "Short URL not found" }, status: :not_found
-  end 
+  end
 
 end
