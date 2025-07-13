@@ -1,5 +1,7 @@
 class LinksController < ApplicationController
 
+   before_action :set_link, only: [:show]
+
   def create
     short_code = SecureRandom.alphanumeric(6)
     @link = Link.new(link_params.merge(short_code: short_code, access_count: 0))
