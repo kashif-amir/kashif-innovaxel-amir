@@ -18,6 +18,15 @@ class LinksController < ApplicationController
     render json: { original_url: @link.original_url }
   end
 
+  def update
+    if @link.update(link_params)
+      render json: @link
+    else
+      render json: @link.errors, status: :unprocessable_entity
+    end
+  end
+
+  
   private
 
   def link_params
