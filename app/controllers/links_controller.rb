@@ -11,6 +11,10 @@ class LinksController < ApplicationController
     end
   end
 
+  def show
+    @link.increment!(:access_count)
+    render json: { original_url: @link.original_url }
+  end
 
   private
 
